@@ -1,0 +1,24 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install flet folium polyline geopy requests numpy
+      - name: Build APK
+        run: flet build apk --permissions location --module-name taxi_app
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: taxi-app-apk
+          path: build/apk/*.apk
