@@ -1,0 +1,26 @@
+[project]
+name = "taxi_app"
+version = "1.0.0"
+description = "Ung dung dat xe cong nghe duoc xay dung bang Python va Flet"
+authors = [
+    { name = "Cua ban", email = "email_cua_ban@example.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "flet",
+    "folium",
+    "polyline",
+    "geopy",
+    "requests",
+    "numpy"
+]
+
+[tool.flet]
+org = "com.yourcompany"  
+product = "Taxi App"      
+company = "YourCompany"   
+copyright = "Copyright (c) 2025 YourCompany"
+
+[tool.flet.android]
+# Tùy chọn này giúp giảm dung lượng file APK. Mình sẽ giải thích ở phần sau.
+split_per_abi = true
